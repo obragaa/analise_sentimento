@@ -1,0 +1,172 @@
+/* Reset de Estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-purple {
+    background-color: #6a1b9a;
+}
+
+.container {
+    max-width: 400px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-control-textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    height: auto;
+    font-size: 1rem;
+    max-width: 350px;
+    min-width: 150px;
+}
+
+.btn-analyze {
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1%;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-analyze:hover {
+    background-color: #4a148c;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.sentiment {
+    color: #6a1b9a;
+    font-weight: bold;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animate__fadeIn {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Estilos para os ícones flutuantes */
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.floating-icons .icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #6a1b9a;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.floating-icons .icon:hover {
+    background-color: #4a148c;
+}
+
+.gatin {
+    width: 400px;
+    height: 260px;
+}
+
+
+/* Estilos para as caixinhas de últimas análises - Revisão para estilização */
+.ultimas-analises-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
+.ultimas-analises-caixinha {
+    background-color: #ffffff;
+    border-left: 5px solid #6a1b9a; /* Adiciona um toque de cor temática */
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+    animation: fadeIn 0.5s ease; /* Reutiliza a animação de fade-in existente */
+}
+
+.ultimas-analises-texto, .ultimas-analises-sentimento, .ultimas-analises-data {
+    margin-bottom: 8px; /* Espaçamento otimizado entre os textos */
+    color: #333333; /* Cor de texto para alta legibilidade */
+}
+
+.ultimas-analises-sentimento {
+    color: #6a1b9a; /* Destaca o sentimento com a cor temática */
+    font-weight: bold; /* Torna o sentimento mais proeminente */
+}
+
+.ultimas-analises-data {
+    font-size: 0.85rem; /* Tamanho menor para a data, mantendo a leitura confortável */
+    color: #555555; /* Cor mais suave para a data */
+}
+
+.h3-respostas {
+    color: #ffffff; /* Muda a cor para branco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para dar profundidade */
+    font-family: 'Roboto', sans-serif; /* Assegura a fonte Roboto, se não estiver sendo aplicada */
+    font-weight: 900; /* Mantém o peso da fonte como negrito */
+    font-size: 1.7rem; /* Aumenta o tamanho da fonte */
+    margin-bottom: 20px; /* Mantém o espaçamento abaixo do título */
+}

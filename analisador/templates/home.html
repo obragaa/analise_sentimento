@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Sentimento</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-purple d-flex align-items-center justify-content-center">
+    
+    <div class="ultimas-analises-container">
+        <h3 class="h3-respostas">Últimas Análises:</h3>
+        {% for frase in ultimas_frases %}
+            <div class="ultimas-analises-caixinha">
+                <p class="ultimas-analises-texto"><strong>Texto:</strong> {{ frase.texto }}</p>
+                <p class="ultimas-analises-sentimento"><strong>Sentimento:</strong> {{ frase.resposta }}</p>
+                <p class="ultimas-analises-data"><strong>Data:</strong> {{ frase.data_e_hora|date:"d/m/Y H:i" }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div class="container">
+        <img src="{% static 'imagens/gatin.png' %}" alt="Ícone" class="gatin">
+        <div class="card shadow animate__animated animate__fadeIn">
+            <div class="card-body">
+                <h1 class="text-center text-dark mb-4">Análise de Sentimento</h1>
+                <form method="post" class="mb-3">
+                    {% csrf_token %}
+                    <div class="form-group text-center">
+                        <textarea name="texto" class="form-control-textarea" rows="4" placeholder="Digite uma frase..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-analyze btn-block">Analisar</button>
+                </form>
+                {% if sentimento %}
+                <div class="result">
+                    <h2 class="text-center">Sentimento: <span class="sentiment">{{ sentimento }}</span></h2>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- Ícones Flutuantes -->
+    <div class="floating-icons">
+        <a href="#" class="icon"><i class="fas fa-home"></i></a>
+        <a href="#" class="icon"><i class="fas fa-envelope"></i></a>
+    </div>
+</body>
+</html>

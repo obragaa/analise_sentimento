@@ -1,0 +1,100 @@
+/* Reset de Estilos */
+* {
+    margin-bottom: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ajuste no Container para Autenticação */
+.auth-container {
+    max-width: 550px;
+    margin: auto;
+    padding: 40px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Estilização dos Campos de Formulário */
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"],
+.signup-form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Estilização específica para botão de envio */
+.signup-form input[type="submit"] {
+    background-color: #6a1b9a;
+    color: white;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.signup-form input[type="submit"]:hover {
+    background-color: #5e1577;
+}
+
+/* Destaque de Erros */
+.errorlist li {
+    color: #ff0000;
+    background-color: #ffecec;
+    border: 1px solid #ff0000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    list-style-type: none;
+}
+
+/* Para dispositivos com tela vertical (mais altos do que largos) */
+@media (min-height: 1100px) {
+    .auth-container {
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 40px;
+    }
+
+    .signup-form input[type="submit"] {
+        padding: 10px; /* Mantém a espessura do botão */
+        margin-top: 15px;
+    }
+}
+
+/* Para dispositivos com tela horizontal (mais largos do que altos) */
+@media (max-height: 1101px) {
+    .auth-container {
+        max-width: 100%; /* Permite que o container ocupe mais espaço em tela horizontal */
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 40px;
+    }
+
+    .signup-form {
+        max-width: 700px; /* Limita a largura do formulário para evitar que fique muito esticado */
+        margin: auto;
+    }
+
+    .signup-form input[type="submit"] {
+        padding: 10px; /* Mantém a espessura do botão */
+        margin-top: 15px;
+    }
+}
+

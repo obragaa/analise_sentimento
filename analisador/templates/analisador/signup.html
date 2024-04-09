@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock css %}
+
+{% block content %}
+    <!-- Antes: <div class="container"> -->
+    <!-- Depois: -->
+    <div class="auth-container">
+        <div class="card">
+            <div class="card-body">
+                <h1>Cadastro</h1>
+                <form method="post" class="signup-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Cadastrar">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

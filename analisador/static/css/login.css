@@ -1,0 +1,96 @@
+/* Centralizando o conteúdo do card-body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 30px; /* Espaçamento interno para evitar que o conteúdo toque as bordas */
+    text-align: center; /* Garante que o texto também esteja centralizado */
+}
+
+/* Estilização e layout do formulário de login */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%; /* Garante que o formulário use toda a largura disponível */
+    gap: 15px; /* Espaço entre os campos do formulário */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="submit"] {
+    padding: 10px; /* Aumento do padding para uma melhor interação */
+    width: calc(100% - 24px); /* Ajuste para considerar o padding */
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    font-size: 1rem; /* Tamanho de fonte para melhor legibilidade */
+    margin-left: auto; margin-right: auto;
+}
+
+.login-form input[type="submit"] {
+    background-color: #6a1b9a;
+    color: white;
+    width: 50%;
+    font-weight: 700;
+    border: none;
+    cursor:pointer;
+    transition: background-color 0.3s ease; /* Suavização da transição de cores */
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #ab47bc; /* Uma cor mais clara para o estado de hover */
+}
+
+.alert-danger, .error-message {
+    color: #ff0000; /* Cor vermelha para o texto */
+    background-color: #ffecec; /* Um vermelho muito claro para o fundo */
+    border-color: #ff0000; /* Uma borda vermelha para destacar */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.link-cadastro a {
+    color: #007bff; /* Ajuste a cor conforme necessário */
+    text-decoration: underline;
+}
+
+/* Para dispositivos com tela vertical (mais altos do que largos) */
+@media (min-height: 1100px) {
+    .auth-container {
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 40px;
+    }
+
+    .signup-form input[type="submit"] {
+        padding: 10px; /* Mantém a espessura do botão */
+        margin-top: 15px;
+    }
+}
+
+/* Para dispositivos com tela horizontal (mais largos do que altos) */
+@media (max-height: 1101px) {
+    .auth-container {
+        max-width: 100%; /* Permite que o container ocupe mais espaço em tela horizontal */
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 40px;
+    }
+
+    .signup-form {
+        max-width: 700px; /* Limita a largura do formulário para evitar que fique muito esticado */
+        margin: auto;
+    }
+
+    .signup-form input[type="submit"] {
+        padding: 10px; /* Mantém a espessura do botão */
+        margin-top: 15px;
+    }
+}
+

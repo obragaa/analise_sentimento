@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body class="bg-purple d-flex align-items-center justify-content-center">
     
     <div class="ultimas-analises-container">
@@ -31,13 +33,20 @@
         <div class="card shadow animate__animated animate__fadeIn">
             <div class="card-body">
                 <h1 class="text-center text-dark mb-4">Análise de Sentimento</h1>
+
                 <form method="post" class="mb-3">
                     {% csrf_token %}
                     <div class="form-group text-center">
                         <textarea name="texto" class="form-control-textarea" rows="4" placeholder="Digite uma frase..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-analyze btn-block">Analisar</button>
+                    {% if user.is_authenticated %}
+                        <button type="submit" class="btn btn-analyze btn-block">Analisar</button>
+                    {% else %}
+                        <button type="submit" class="btn btn-analyze btn-block" disabled title="Você precisa estar logado para analisar">Analisar</button>
+                        <p class="text-warning">Você precisa <a href="{% url 'login' %}">logar</a> para analisar.</p>
+                    {% endif %}
                 </form>
+                
                 {% if sentimento %}
                 <div class="result">
                     <h2 class="text-center">Sentimento: <span class="sentiment">{{ sentimento }}</span></h2>
@@ -48,8 +57,16 @@
     </div>
     <!-- Ícones Flutuantes -->
     <div class="floating-icons">
-        <a href="#" class="icon"><i class="fas fa-home"></i></a>
-        <a href="#" class="icon"><i class="fas fa-envelope"></i></a>
+        {% if user.is_authenticated %}
+            <!-- Se o usuário estiver logado, mostra o ícone da home e permite o logout -->
+            <a href="{% url 'home' %}" class="icon"><i class="fas fa-home"></i></a>
+            <a href="{% url 'logout' %}" class="icon"><i class="fas fa-sign-out-alt"></i></a>
+        {% else %}
+            <!-- Se o usuário não estiver logado, mostra os ícones de login e cadastro -->
+            <a href="{% url 'login' %}" class="icon"><i class="fas fa-sign-in-alt"></i></a>
+            <a href="{% url 'signup' %}" class="icon"><i class="fas fa-user-plus"></i></a>
+        {% endif %}
+    </div>
     </div>
 </body>
 </html>

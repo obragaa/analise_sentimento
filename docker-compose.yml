@@ -1,12 +1,21 @@
 version: '3.8'
-
 services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+      - static_volume:/code/static
     ports:
       - "8000:8000"
     environment:
-      - DEBUG=1
+      - DEBUG=1  # Se você estiver em desenvolvimento
+    depends_on:
+      - db
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+volumes:
+  postgres_data:
+  static_volume:

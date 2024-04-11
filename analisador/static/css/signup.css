@@ -78,6 +78,7 @@
 
 /* Para dispositivos com tela horizontal (mais largos do que altos) */
 @media (max-height: 1101px) {
+
     .auth-container {
         max-width: 100%; /* Permite que o container ocupe mais espaço em tela horizontal */
         padding: 20px;

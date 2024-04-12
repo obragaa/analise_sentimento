@@ -133,3 +133,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL utilizada para acessar os arquivos de mídia
 MEDIA_URL = '/media/'
+
+# Configuração do modelo de usuário personalizado
+AUTH_USER_MODEL = 'analisador.CustomUser'
+
+
+

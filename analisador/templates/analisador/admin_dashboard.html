@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="all-content">
+    <div class="dashboard-header">
+        <h1>Dashboard de Administração</h1>
+    </div>
+    <div class="main-content">
+        <div class="stats-container">
+            <div class="stats-card">
+                <h4>Usuários Online</h4>
+                <p>{{ num_users_online }}</p>
+                <canvas id="onlineUsersChart"></canvas>
+            </div>
+            <div class="stats-card">
+                <h4>Total de Análises</h4>
+                <p>{{ total_analyses }}</p>
+                <canvas id="totalAnalysesChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeCharts();
+    });
+
+    function initializeCharts() {
+        var onlineCtx = document.getElementById('onlineUsersChart').getContext('2d');
+        var analysisCtx = document.getElementById('totalAnalysesChart').getContext('2d');
+        var onlineUsersChart = new Chart(onlineCtx, getConfig('Usuários Online', [{{ num_users_online|safe }}]));
+        var totalAnalysesChart = new Chart(analysisCtx, getConfig('Total de Análises', [{{ total_analyses|safe }}]));
+    }
+
+    function getConfig(label, data) {
+        return {
+            type: 'line',
+            data: {
+                labels: Array(data.length).fill(''), // Simplificando os labels
+                datasets: [{
+                    label: label,
+                    data: data,
+                    backgroundColor: 'rgba(106, 27, 154, 0.2)',
+                    borderColor: 'rgba(106, 27, 154, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+    }
+</script>
+{% endblock %}

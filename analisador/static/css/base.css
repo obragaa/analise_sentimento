@@ -1,23 +1,12 @@
-/* Reset de Estilos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 /* Estilos Gerais */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f5f5f5; /* Um fundo claro para suavizar a transição visual */
-    color: #333; /* Cor de texto mais suave */
-    line-height: 1.6; /* Melhorar a legibilidade do texto */
     display: flex;
-    flex-direction: column; /* Garantir que o footer fique na parte inferior */
-    min-height: 100vh;
-}
-
-.bg-purple {
-    background-color: #6a1b9a; /* Mantém a cor tema */
+    flex-direction: column; /* Mantém o layout em coluna para separar cabeçalho, conteúdo e rodapé */
+    background-color: #6a1b9a; /* Cor de fundo violeta */
+    color: #333; /* Cor de texto mais suave */
+    min-height: 100vh; /* Altura mínima para cobrir a viewport inteira */
 }
 
 .container {
@@ -64,28 +53,11 @@ h1 {
     background-color: #4a148c;
 }
 
-.result {
-    padding: 1rem 0; /* Adiciona padding vertical */
-    background-color: #e9ecef; /* Fundo claro para o resultado */
-    border-radius: 0.25rem;
-    margin-top: 1rem; /* Separa o resultado do resto do formulário */
-}
-
-/* Melhoria nos ícones flutuantes para responsividade */
-.floating-icons .icon {
-    margin: 0.5rem; /* Adiciona um espaço entre os ícones */
-}
-
 /* Cabeçalho e Rodapé */
 .site-header, .site-footer {
     background-color: #6a1b9a;
     color: #fff;
     padding: 1rem 0; /* Aumenta o padding para mais espaço */
-}
-
-.logo {
-    margin-left: 20px; /* Ajusta margem para o logo */
-    color: white;
 }
 
 .site-footer {
@@ -103,4 +75,47 @@ h1 {
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
+}
+
+.site-header {
+    background-color: #6a1b9a;
+    color: #fff;
+    text-align: center; /* Centraliza o conteúdo dentro da .site-header */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.site-header .logo {
+    font-weight: bolder;
+    color: #fff;
+    font-size: larger;
+    text-decoration: none;
+    display: inline-block; /* Garante que o logotipo se comporte como um bloco e possa ser centralizado */
+}
+
+/* Estilos para os ícones flutuantes */
+.floating-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.floating-icons .icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #6a1b9a;  /* Cor de fundo violeta */
+    color: #fff;  /* Ícones brancos */
+    border-radius: 50%;  /* Bordas arredondadas para fazer círculos */
+    text-align: center;
+    line-height: 40px;  /* Centraliza o ícone verticalmente */
+    margin-bottom: 10px;  /* Espaço entre ícones */
+    transition: background-color 0.3s ease;  /* Efeito suave ao mudar de cor */
+}
+
+.floating-icons .icon:hover {
+    background-color: #4a148c;  /* Cor mais escura ao passar o mouse */
 }

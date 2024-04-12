@@ -1,15 +1,16 @@
+<!-- base.html -->
 {% load static %}
-
+{% load group_tags %}
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+    {% block css %}{% endblock css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>{% block title %}Seu Site{% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block css %}{% endblock css %}
 </head>
-
 <body>
     <header class="site-header">
         <div class="container header-content">
@@ -20,7 +21,19 @@
     <main class="main-content">
         {% block content %}{% endblock %}
     </main>
-
+        <!-- Ícones Flutuantes -->
+        <div class="floating-icons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}" class="icon"><i class="fas fa-home"></i></a>
+                <a href="{% url 'logout' %}" class="icon"><i class="fas fa-sign-out-alt"></i></a>
+                {% if user|has_group:"AdminGroup" %}
+                    <a href="{% url 'admin_dashboard' %}" class="icon"><i class="fas fa-tachometer-alt"></i></a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'login' %}" class="icon"><i class="fas fa-sign-in-alt"></i></a>
+                <a href="{% url 'signup' %}" class="icon"><i class="fas fa-user-plus"></i></a>
+            {% endif %}
+        </div>
     <footer class="site-footer">
         <div class="container footer-content">
             <p>&copy; 2024 Análise de Sentimento</p>

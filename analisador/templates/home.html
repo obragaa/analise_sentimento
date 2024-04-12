@@ -1,9 +1,8 @@
 
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="pt">
-<head>
+{% block css %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise de Sentimento</title>
@@ -13,10 +12,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
+{% endblock css %}
 
-<body class="bg-purple d-flex align-items-center justify-content-center">
-    
+{% block content %}
     <div class="ultimas-analises-container">
         <h3 class="h3-respostas">Últimas Análises:</h3>
         {% for frase in ultimas_frases %}
@@ -55,20 +53,4 @@
             </div>
         </div>
     </div>
-    <!-- Ícones Flutuantes -->
-    <div class="floating-icons">
-        {% if user.is_authenticated %}
-            <!-- Se o usuário estiver logado, mostra o ícone da home e permite o logout -->
-            <a href="{% url 'home' %}" class="icon"><i class="fas fa-home"></i></a>
-            <a href="{% url 'logout' %}" class="icon"><i class="fas fa-sign-out-alt"></i></a>
-        {% else %}
-            <!-- Se o usuário não estiver logado, mostra os ícones de login e cadastro -->
-            <a href="{% url 'login' %}" class="icon"><i class="fas fa-sign-in-alt"></i></a>
-            <a href="{% url 'signup' %}" class="icon"><i class="fas fa-user-plus"></i></a>
-        {% endif %}
-    </div>
-    </div>
-    
-    
-</body>
-</html>
+{% endblock %}

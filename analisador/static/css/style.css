@@ -1,4 +1,3 @@
-/* Reset de Estilos */
 * {
     margin: 0;
     padding: 0;
@@ -8,14 +7,14 @@
 /* Estilos Gerais */
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bg-purple {
-    background-color: #6a1b9a;
+    flex-direction: column; /* Mantém o layout em coluna para separar cabeçalho, conteúdo e rodapé */
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    background-color: #6a1b9a; /* Cor de fundo violeta */
+    color: #333; /* Cor de texto mais suave */
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    min-height: 100vh; /* Altura mínima para cobrir a viewport inteira */
 }
 
 .container {
@@ -97,30 +96,6 @@ h2 {
     animation: fadeIn 0.5s ease;
 }
 
-/* Estilos para os ícones flutuantes */
-.floating-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-
-.floating-icons .icon {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: #6a1b9a;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.floating-icons .icon:hover {
-    background-color: #4a148c;
-}
 
 .gatin {
     width: 400px;
@@ -169,87 +144,4 @@ h2 {
     font-weight: 900; /* Mantém o peso da fonte como negrito */
     font-size: 1.7rem; /* Aumenta o tamanho da fonte */
     margin-bottom: 20px; /* Mantém o espaçamento abaixo do título */
-}
-
-
-/* HEADER E FOOTER */
-/* Cabeçalho */
-.site-header {
-    width: 100%;
-    background-color: #6a1b9a;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding-left: 20px;
-}
-
-/* Rodapé */
-.site-footer {
-    width: 100%;
-    background-color: #6a1b9a;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-}
-
-.footer-content {
-    font-size: 0.8rem;
-}
-
-#aviao-container {
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Garante que o avião fique atrás da maioria dos outros elementos */
-}
-
-#aviao {
-    position: absolute;
-    width: 100px; /* Ajuste conforme necessário */
-    animation: voar 15s linear infinite;
-}
-
-@keyframes voar {
-    0% {
-        left: -120%;
-        top: 100%;
-        transform: rotate(45deg);
-    }
-    25% {
-        left: 30%;
-        top: -30%;
-        transform: rotate(-20deg);
-    }
-    50% {
-        left: 80%;
-        top: 100%;
-        transform: rotate(45deg);
-    }
-    75% {
-        left: 20%;
-        top: -30%;
-        transform: rotate(-20deg);
-    }
-    100% {
-        left: -120%;
-        top: 100%;
-        transform: rotate(45deg);
-    }
 }
